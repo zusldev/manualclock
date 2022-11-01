@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(44, 37, 33, 0.911),
+    rgb(94, 84, 84)
+  );
+}
+
+.container {
+  position: relative;
+}
+.container .circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0px 10px 16px 1px rgba(100, 93, 93, 0.747);
+  animation: 8s ease-in alternate infinite;
+}
+.container .circle:nth-child(1) {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(#a2e, #62506b);
+  top: 350px;
+  left: -100px;
+  animation-name: move-up;
+  animation-delay: 2s;
+}
+
+.container .circle:nth-child(2) {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(#abe, #862622);
+  top: -110px;
+  left: 350px;
+  animation-name: move-down;
+}
+.container .circle:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(#abe, #38cf24);
+  top: 100px;
+  left: -150px;
+  animation-name: move-up;
+}
+.container .circle:nth-child(4) {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(rgb(151, 124, 224), #9398b4);
+  top: 350px;
+  left: 350px;
+  animation-name: move-corner;
+}
+@keyframes move-up {
+  to {
+    transform: translateY(-30px);
+  }
+}
+@keyframes move-down {
+  to {
+    transform: translateX(-10px);
+  }
+}
+@keyframes move-corner {
+  to {
+    transform: translateX(20px);
+    transform: translateY(20px);
+  }
+}
+.clock {
+  width: 450px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(266, 255, 255, 0.1);
+  border-radius: 50%;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.clock .clock-bg img {
+  width: 100%;
+  height: 100%;
+}
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 15;
+}
+.clock .hour,
+.clock .minute,
+.clock .second {
+  position: absolute;
+}
+.clock .hour,
+.clock .hour .hr {
+  width: 160px;
+  height: 160px;
+}
+.clock .minute,
+.clock .minute .min {
+  width: 200px;
+  height: 200px;
+}
+.clock .second,
+.clock .second .sec {
+  width: 240px;
+  height: 240px;
+}
+.clock .hour .hr,
+.clock .minute .min,
+.clock .second .sec {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+}
+.clock .hour .hr::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 130px;
+    top: -40px;
+    background: linear-gradient(to top, #a2e, #a223);
+    border-radius: 50px;
+    z-index: 10;
+}
+.clock .minute .min::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 160px;
+    top: -30px;
+    background: linear-gradient(to top, rgb(202, 198, 204), rgba(177, 122, 122, 0.2));
+    border-radius: 50px;
+    z-index: 11;
+}
+.clock .second .sec::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 180px;
+    top: -30px;
+    background: linear-gradient(to top, rgba(170, 34, 238, 0.432), rgba(255, 255, 255, 0.555));
+    border-radius: 50px;
+    z-index: 12;
+}
